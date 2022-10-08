@@ -75,6 +75,6 @@ background-color:#000000;
 
 body {
   background-image: url('/Assets/images/background2.png');
-  
+  background-repeat: no-repeat;
 }
 
