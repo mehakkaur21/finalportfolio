@@ -1,14 +1,13 @@
 {
-  "name": "expressportfolio",
-  "version": "1.0.0",
+  "name": "webdevproject",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js",
-    "devStart": "nodemon server.js"
+    "start": "node ./server.js"
   },
   "engines": {
-    "node": "^14.0.0",
-    "npm": "^7.0.0"
+    "node": "^12.18.3",
+    "npm": "^6.0.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
@@ -20,9 +19,10 @@
     "http-errors": "~1.6.3",
     "jquery": "^3.6.0",
     "morgan": "~1.9.1",
-    "passport": "^0.6.0",
+    "nodemon": "^2.0.20",
     "popper.js": "^1.16.1"
   },
+
   "description": "COMP229 - Express Portfolio",
   "main": "server.js",
   "repository": {
