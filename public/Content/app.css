@@ -11,9 +11,6 @@
     width: 50;
     height: 80;
   }
-
- 
-
   .lefttext {
     display: block;
     text-align: left;
@@ -28,8 +25,6 @@
   .container{  
     text-align: center;
     }  
-
-
     body{
       background-color: papayawhip;
   }
@@ -78,3 +73,12 @@ body {
   background-repeat: no-repeat;
 }
 
+
+/* style=" */
+@media screen and (min-width:1000px){
+  #navbarSupportedContent{
+    display: flex;
+    justify-content:space-between;
+    padding: 0 20px;
+  }
+}

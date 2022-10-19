@@ -1,0 +1,23 @@
+<%- include ../partials/header.ejs %>
+  <%- include ../partials/main_nav.ejs %>
+     <div class="form-error-message">
+        <p>Invalid username or password</p>
+     </div>
+      <div class="login-container">
+        <div class="flex-login-container">
+          <div class="login-form">
+            <form  action="/login" method="POST">
+              <h1>Login</h1>
+              <input type="text" name="username" id="username" placeholder="username"><br>
+              <input type="text" name="password" id="password" placeholder="password">
+              <div>
+                <button  type="submit">Login</button>
+              </div>
+            </form>
+          </div>
+          <div class="login-graphics">
+            <img src="/Assets/images/At work.jpg" alt="">
+          </div>
+        </div>
+      </div>
+        <%- include ../partials/footer.ejs %>
