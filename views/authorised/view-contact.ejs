@@ -10,44 +10,33 @@
         <nav style="margin-top: 1rem;" aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/businessContacts">Business Contacts</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Contact</li>
+            <li class="breadcrumb-item active" aria-current="page">View Contact</li>
           </ol>
         </nav>
 
-        <form action="/editContact/<%=contact._id%>" method="post" class="edit-contactForm">
+        <form action="/editUser" method="post" class="edit-contactForm">
           <div class="edit-form-inputs">
             <div class="form-floating mb-3">
-              <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Name"
+              <input readonly type="text" name="name" class="form-control" id="floatingInput" placeholder="Name"
                 value="<%=contact.name%>">
               <label for="floatingInput">Name</label>
             </div>
-
             <div class="form-floating mb-3">
-              <input type="text" name="contactNumber" class="form-control" id="floatingInput" placeholder="name@example.com"
+              <input readonly type="text" name="name" class="form-control" id="floatingInput" placeholder="name@example.com"
                 value="<%=contact.contactNumber%>">
               <label for="floatingInput">Contact Number</label>
             </div>
-
           </div>
-
           <div class="form-floating mb-3">
-            <input type="text" name="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+            <input readonly type="text" name="email" class="form-control" id="floatingInput" placeholder="name@example.com"
               value="<%=contact.email%>">
             <label for="floatingInput">Email address</label>
           </div>
-
           <div class="form-floating mb-3">
-            <textarea type="text" name="description" class="form-control" id="floatingInput" placeholder="name@example.com"
-              value="<%=contact.email%>"  style="height: 200px;"><%=contact.description%>
+            <textarea readonly type="text" name="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+              value="<%=contact.email%>" style="height: 200px;"><%=contact.description%>
             </textarea>
             <label for="floatingInput">Description</label>
-          </div>
-         
-          <div style="text-align: left;" class="edit-form-btns">
-            <button class="btn btn-primary" type="submit"><i class="bi bi-pencil"></i> &nbsp;Edit Contact</button> &nbsp;
-            <a href="/deleteContact/<%=contact._id%>" class="btn btn-danger btn-small"><i
-              class="bi bi-person-x"></i>
-              &nbsp; Delete</a>
           </div>
         </form>
       </div>

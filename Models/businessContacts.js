@@ -8,15 +8,14 @@ const businessContactSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    // required: true
   },
   contactNumber: {
-    type: Number,
-    required: true
+    type: String,
+    // required: true
   },
   description: {
-    type: String,
-    required: true
+    type: String
   }
 })
 
