@@ -1,6 +1,6 @@
 var express = require('express');
-var config = required ('./env/development');
-var session = required('express-session');
+var config = required ('./env/development')
+var session = required('express-session')
 var morgan = required('morgan');
 var compression = required('compression');
 var bodyParser = required('body-Parser');

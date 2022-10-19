@@ -7,3 +7,48 @@ USING MONGOOSE.CONNECT
 
 4 CREATED OUR FIRST USER WITH A ENCRYPTED PASSWORD
 
+5 NOW WE WILL START WITH AUTHENTICATION
+   SET UP /login get route that render the login page 
+
+   SET UP /login post route 
+       Get the username and password entered using req.body.username
+       Then we will create a session in app.js
+
+6 For creating session install express-session package and import it in app.js
+Also install package connect-mongodb-session
+
+import express-session in constant session
+
+7   const MongoDBStore = require('connect-mongodb-session')(session);
+    Store the mongodb cluster url and session constant as collection
+    This will create a new collection session in mongodb which will contain the active sessions
+         const store = new MongoDBStore({
+           uri: MONGODB_URI,
+           collection: 'sessions'
+         })
+    Our session has been created
+
+8 Now setup post login
+    First we checked if the user entered the correct username and pass as it is there in database
+    If credentials were correct 
+      we set req.session.isLoggedIn = true; 
+      this means we add and object isLoggedIn to our session
+
+      then we set req.session.user = user;
+      this will send all the user data to an object user in the request
+    
+    If credentials are wrong we use the flash function imported in app.js using package 'connect-flash'
+    Flash function sends error message to the login page
+
+9 Then we will set the authentcation status on all the pages using the function below in app.js
+
+// ADDING AUTHENTICATION STATUS
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isLoggedIn;
+  next();
+})
+req.session.isLoggedIn contains a true value if we have logged in which we set in step 8
+if user has not logged in req.session.isLoggedIn will contain a false value
+
+
+

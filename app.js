@@ -6,16 +6,48 @@ let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
+let businessContactsRouter = require('./routes/businessContacts');
+let app = express();
 
 // IMPORTING PACKAGE MONGOOSE npm install --save mongoose
 const mongoose = require('mongoose');
+
 // IMPORTING USER SCHEMA FROM  user.js IN Models DIRECTORY
 const User = require('./Models/user');
+
 // IMPORTING bcryptjs to encrypt the password
 const bcryptjs = require('bcryptjs');
 
+// IMPORTING EXPRESS-SESSIONS TO CREATE LOGIN SESSIONS
+var session = require('express-session');
 
-let app = express();
+// ADDING A FLASH MESSAGE
+var flash = require('connect-flash');
+
+// MONGODB CLUSTER LINK
+const MONGODB_URI = 'mongodb+srv://MehakKaur:Mehak123@cluster0.8wazwtw.mongodb.net/portfolio?retryWrites=true&w=majority';
+// STARTING A SESSION
+const MongoDBStore = require('connect-mongodb-session')(session);
+const store = new MongoDBStore({
+  uri: MONGODB_URI,
+  collection: 'sessions'
+})
+app.use(
+  session({
+    secret: 'my secret',
+    resave: 'false',
+    saveUninitialized: false,
+    store: store
+  })
+);
+
+// ADDING AUTHENTICATION STATUS
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isLoggedIn;
+  next();
+})
+// USING FLASH FUNCTION TO SEND RESPONSES TO USER
+app.use(flash());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,18 +60,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
-app.use('/', indexRouter);
+app.use(indexRouter);
+app.use(businessContactsRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
-
 // error handler
-
-
-
 
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
@@ -49,11 +78,12 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error', { title: 'Error' });
+
 });
 
 module.exports = app;
 // CONNECTING TO MONGODB USING MONGOOSE
-mongoose.connect('mongodb+srv://MehakKaur:Mehak123@cluster0.8wazwtw.mongodb.net/portfolio?retryWrites=true&w=majority')
+mongoose.connect(MONGODB_URI)
   .then(result => {
     console.log('Connected !!');
     User.findOne()  // CHECKING IF THERE IS ANY USER DATA STORED IN DATABASE
@@ -66,7 +96,7 @@ mongoose.connect('mongodb+srv://MehakKaur:Mehak123@cluster0.8wazwtw.mongodb.net/
               username: 'Mehak',
               password: hashedPassword
             });
-            user.save()
+            user.save() // SAVING THE DATA TO MONGODB USING .save() mongoose function
               .then(result => {
                 console.log(result);
               })
