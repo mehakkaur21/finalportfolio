@@ -50,7 +50,38 @@ app.use((req, res, next) => {
 req.session.isLoggedIn contains a true value if we have logged in which we set in step 8
 if user has not logged in req.session.isLoggedIn will contain a false value
 
+10 Now we are done with AUTHENTICATION
+   We will create business contacts list view 
+   CREATE FRONTEND OF BUSINESS CONTACT LIST VIEW
+   SETUP ITS ROUTER TO GET THE PAGE AND RENDER IT USING FUNCTION getBusinessContacts() IN businesscontacts.js controller
 
+11 Create new model businesscontacts.js
+   In this model we will create a new schema businessContactSchema which will contain information about name, email, contact number and description
 
+   Our Aim is to store data from contact form in collection businesscontacts using businessContactSchema in the models using MONGOOSE
+
+12 Now we will create a post method for contact page in businessContacts.js Controller and use it in the router
+
+postContact = (req, res, next) => {
+  const name = req.body.name;
+  const email = req.body.email;
+  const contactNumber = req.body.contactNumber;
+  const additionalInfo = req.body.additionalInfo;
+  const businessContacts = new BusinessContact({
+    name: name,
+    email: email,
+    contactNumber: contactNumber,
+    description: additionalInfo
+  })
+  businessContacts.save();
+  console.log(name, email, contactNumber, additionalInfo);
+  res.redirect('/contact');
+}
+
+ businessContacts.save(); Is a mongoose function that saves the data in mongodb server in businessContacts collection
+
+ 13 Now we will fetch data from collection business contacts and display it on our business contacts view using ejs and function getBusinessContacts() in our controller
+
+ 14 After displaying we will make delete button functional which deletes a user and returns a message that user has been deleted
 
 
