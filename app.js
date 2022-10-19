@@ -1,3 +1,10 @@
+/*
+File Name: app.js
+Name: Mehak kaur 
+Student ID 301232188
+Date 20 October, 2022
+*/
+
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
@@ -32,14 +39,15 @@ const store = new MongoDBStore({
   uri: MONGODB_URI,
   collection: 'sessions'
 })
-app.use(
-  session({
-    secret: 'my secret',
-    resave: 'false',
-    saveUninitialized: false,
-    store: store
-  })
-);
+  app.use(
+    session({
+      secret: 'my secret',
+      resave: 'false',
+      saveUninitialized: false,
+      store: store
+    })
+  );
+
 
 // ADDING AUTHENTICATION STATUS
 app.use((req, res, next) => {

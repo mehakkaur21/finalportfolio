@@ -1,55 +1,85 @@
 <%- include partials/header.ejs %>
-
   <%- include partials/main_nav.ejs %>
-
-    <%- include partials/title.ejs %>
-
-      <!--File Name:contact.ejs
+    <!--File Name:contact.ejs
     Name: mehak kaur 
     Student ID 301232188
     Date 6 October, 2022-->
-
-      <!-- Contact me content -->
-
-      <br><br>
-
-      <!-- Contact me form -->
-
-      <form class="container" method="POST" action="/submitContact">
-        <div class="container" style="padding-top: 20px;">
-          <div id="panel" class="panel panel-default" style="border: 2px black; ">
-            <div class="panel-body">
-              <h6>Contact number: (647)-865-2680</h6>
-              <h6>Email: mkaur864@my.centennialcollege.ca</h6>
-              <h6>Instagram: mehak_.kaur21</h6>
+    <div class="align-center">
+      <div class="flex-contact">
+        <div class="block-form">
+          <h1>Contact Me</h1>
+          <br>
+          <form id="ContactForm" method="POST" action="/submitContact">
+            <!-- NAME -->
+            <div class="input-group mb-3">
+              <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Full Name" name="name">
+                <label for="floatingInputGroup1">Your Name</label>
+              </div>
             </div>
-          </div>
+
+            <!-- EMAIL -->
+            <div class="input-group mb-3">
+              <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+              <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInputGroup1" placeholder="Email Adderess"
+                  name="email">
+                <label for="floatingInputGroup1">Email Adderess</label>
+              </div>
+            </div>
+            <!-- PHONE -->
+            <div class="input-group mb-3">
+              <span class="input-group-text"><i class="bi bi-telephone-forward"></i></span>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Email Adderess"
+                  name="contactNumber">
+                <label for="floatingInputGroup1">Contact Number</label>
+              </div>
+            </div>
+            <!-- DESCRIPTION -->
+            <div class="form-floating">
+              <textarea style="height: 200px;" class="form-control" placeholder="Leave a comment here"
+                id="floatingTextarea" name="additionalInfo"></textarea>
+              <label for="floatingTextarea">Comments</label>
+            </div>
+            <div style="text-align: left;">
+              <button style="margin: 20px 0;text-align: left;" class="btn btn-primary" type="submit">Submit
+                Form</button>
+            </div>
+          </form>
         </div>
-        <div style="float:left; padding-left:310px;">
-          <legend><strong>Contact Form</strong></legend>
-          <label class="lefttext">Your name</label>
-          <input type="text" class="form-control" size="35" name="name" placeholder="Full Name">
-          <label style="float:right; padding-right:310px;" class="lefttext">Your email</label>
-          <input type="email" class="form-control" name="email" size="35" placeholder="xyz@example.com"><br> <br>
-          <label style="float:right; padding-right:310px; " class="lefttext">Contact Number:</label><br />
-          <input type="text" class="form-control" size="35" name="contactNumber" placeholder="(xxx)-xxx-xxx" /> <br />
-          <textarea type="text" rows="5" cols="33" name="additionalInfo" class="form-control"
-            placeholder="Additional Information"></textarea><br />
-          <button type="submit" value="Submit" class="btn btn-success">Submit Form</button><br> <br>
 
-          <h5 style="text-align: left; margin-left:310px;">Alternatively, you can reach out to me:-</h5>
-          <div class="card card border-success mb-3" style="text-align: center;">
-            <div class="card-header">
-              <h5 class="card-title">MEHAK KAUR</h5>
+        <div class="block-contactMe">
+          <div class="contact-me-content">
+            <div class="icon-contactMe">
+              <i class="bi bi-telephone-fill"></i>
             </div>
-            <div class="card-body" style="text-align: center;">
-              <p class="card-text">Email: <a href="mailto:mehak.kaur2002.mk@gmail.com">mehak.kaur2002.mk@gmail.com</a>
-              </p>
-              <p class="card-text">Phone: (647) 865 2680</p>
-            </div>
+            <p>+1 (647)-865-2680</p>
           </div>
-        </div><br><br>
+          <div class="contact-me-content">
+            <div class="icon-contactMe">
+              <i class="bi bi-envelope"></i>
+            </div>
+            <p>mkaur864@my.centennialcollege.ca</p>
+          </div>
+          <div class="contact-me-content">
+            <div class="icon-contactMe">
+              <i class="bi bi-instagram"></i>
+            </div>
+            <p>mehak_.kaur21</p>
+          </div>
+          <div class="contact-me-content">
+            <div class="icon-contactMe">
+              <i class="bi bi-github"></i>
+            </div>
+            <p>MehakKaur21</p>
+          </div>
+
         </div>
+      </div>
+    </div>
 
 
-      </form>
+
+    <%- include partials/bottom_nav.ejs %>

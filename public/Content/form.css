@@ -1,0 +1,94 @@
+.flex-contact {
+  max-width: 1200px;
+  display: flex;
+  width: 100%;
+}
+
+.flex-contact .block-form {
+  background-color: rgb(255, 255, 255);
+  width: 70%;
+}
+
+.flex-contact .block-contactMe {
+  background-color: palevioletred;
+  width: 30%;
+}
+
+.flex-contact>div {
+  margin: 10px;
+  padding: 28px;
+  border-radius: 20px;
+}
+
+.block-form h1 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 10px 0;
+}
+
+@media screen and (max-width:1000px) {
+  .flex-contact {
+    flex-direction: column;
+  }
+
+  .flex-contact .block-form {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .flex-contact .block-contactMe {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+.block-contactMe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reachMeOut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reachMeOutIcon {
+  width: 30%;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+}
+
+.reachMeOutContent {
+  width: 70%;
+  color: white;
+  text-align: justify;
+}
+.contact-me-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 20px;
+}
+.contact-me-content i{
+  font-size: 30px;
+}
+.contact-me-content p{
+  font-size: 18px;
+}
+.icon-contactMe{
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
