@@ -25,7 +25,7 @@ var session = require('express-session');
 var flash = require('connect-flash');
 
 // MONGODB CLUSTER LINK
-const MONGODB_URI = 'mongodb+srv://MehakKaur:Mehak123@cluster0.8wazwtw.mongodb.net/portfolio?retryWrites=true&w=majority';
+const MONGODB_URI = 'mongodb+srv://japneetSinghh:sidak123@cluster0.8wazwtw.mongodb.net/portfolio?retryWrites=true&w=majority';
 // STARTING A SESSION
 const MongoDBStore = require('connect-mongodb-session')(session);
 const store = new MongoDBStore({
